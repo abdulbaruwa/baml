@@ -1,0 +1,55 @@
+.baml_header{
+    padding-bottom: 50px;
+}
+
+.baml_daysummary
+{
+    margin-bottom: 24px;
+}
+
+.baml_day_icon
+{
+    width: 50px;
+    height: 50px;
+    margin: 8px 15px 0 0;
+}
+
+.baml_condition
+{
+    font-family: "Segoe UI light",HelveticaNeue,Helvetica,Roboto,Arial,Sans-Serif;
+    margin-right: 40px;
+}
+
+.wtr_range {
+    background: transparent;
+    -webkit-appearance: none;
+    width: 100%;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    margin-left: 1px;
+    height: 24px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+input {
+    font: inherit;
+    font-size: 100%;
+}
+
+input, textarea, h4, h5 {
+    font: inherit;
+    font-size: 100%;
+}
+
+input[type="range" i] {
+    color: rgb(196, 196, 196);
+}
+
+input[type="range" i] {
+    -webkit-appearance: slider-horizontal;
+    color: rgb(144, 144, 144);
+    padding: initial;
+    border: initial;
+    margin: 2px;
+}

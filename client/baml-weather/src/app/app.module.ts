@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
-import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule, MatToolbar, MatMenuModule } from '@angular/material';
+import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule, MatToolbar, MatMenuModule, MatSliderModule, MatCardModule } from '@angular/material';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -28,6 +28,8 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
       MatIconModule,
       MatToolbarModule,
       MatMenuModule,
+      MatSliderModule,
+      MatCardModule,
       AppRoutingModule
     ],
     providers: [],
