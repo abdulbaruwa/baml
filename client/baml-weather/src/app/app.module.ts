@@ -7,11 +7,14 @@ import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule, MatToo
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
+import { WeatherComponent } from './weather/weather.component';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 
 @NgModule({
     declarations: [
       AppComponent,
-      NavbarComponent
+      NavbarComponent,
+      WeatherComponent
     ],
   
     imports: [
@@ -24,7 +27,8 @@ import { NavbarComponent } from './navbar/navbar.component';
       MatSelectModule,
       MatIconModule,
       MatToolbarModule,
-      MatMenuModule
+      MatMenuModule,
+      AppRoutingModule
     ],
     providers: [],
     bootstrap: [AppComponent]
