@@ -10,12 +10,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
 import { WeatherComponent } from './weather/weather.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { DaytabComponent } from './daytab/daytab.component';
 
 @NgModule({
     declarations: [
       AppComponent,
       NavbarComponent,
-      WeatherComponent
+      WeatherComponent,
+      DaytabComponent
     ],
   
     imports: [
