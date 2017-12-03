@@ -17,8 +17,8 @@
         <div class="col-md-12">
           <div class="row">
             <div class="baml_header col-md-8">
-              <div role="heading" aria-level="2">Ashtead, England</div>
-              <div role="heading" aria-level="2">UPDATED 2 DECEMBER, 12:00</div>
+              <div role="heading" aria-level="2">{{currentDayWeather.locale}}</div>
+              <div role="heading" aria-level="2">UPDATED {{lastUpdate}}</div>
             </div>
 
             <div class="col-md-4">
@@ -37,7 +37,7 @@
             <button mat-raised-button style="width:80px; float:right">Forward</button>
           </div>
         </div>
-        <mat-tab-group class="baml_tabGroup col-md-12" [(selectedIndex)]="selectedTabIndex">
+        <mat-tab-group class="baml_tabGroup col-md-12" [(selectedIndex)]="selectedTabIndex" (selectedTabChange)="onTabChange($event)">
           <mat-tab *ngFor="let day of fiveDayReportArray">
             <div style="margin:20px">
               <ng-template mat-tab-label>
@@ -62,7 +62,7 @@
                     <div class="containers">
                       <div class="wtr_currTemp col1">5</div>
                       <div class="wtr_currPicke col2">
-                        <div>°C</div>
+                        <div>{{tempUnitSuffix}}</div>
                       </div>
                     </div>
                   </div>
@@ -70,14 +70,14 @@
 
                 <div class="col-sm-6">
                   <div>
-                    <p>Preciptiation: 10%</p>
-                    <p>Wind: 5KMPH</p>
-                    <p>Humidity: 80%</p>
+                    <p>Preciptiation: {{currentDayWeather.precipitation}}%</p>
+                    <p>Wind: {{currentDayWeather.wind}}KMPH</p>
+                    <p>Humidity: {{currentDayWeather.humidity}}%</p>
                   </div>
                 </div>
               </div>
               <div class="baml_header col-md-3">
-                <div role="heading" aria-level="2">Mostly Sunny . Sat 2, 15:52</div>
+                <div role="heading" aria-level="2">{{currentDayWeather.shortDescription}} . {{currentDayWeather.daytime}}</div>
               </div>
               <div class="row" style="margin:0px">
                 <div>
@@ -95,8 +95,7 @@
                   </table>
 
                   <div style="margin:0px">
-                    <input type="range" min="0" max="1440" value="0" step="1" aria-label="Time" aria-valuetext="12:34, 9°, Precipitation: 20%"
-                    />
+                    <input type="range" min="0" max="1440" value="0" step="1" aria-label="Time" aria-valuetext="12:34, 9°, Precipitation: 20%"                    />
                   </div>
                 </div>
               </div>

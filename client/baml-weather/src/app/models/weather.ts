@@ -7,4 +7,6 @@ export class Weather {
     humidity: number
     shortDescription: string;
     daytime: string;
+    precipitation: number; 
+    
 }
