@@ -11,25 +11,38 @@
     <div>Today </div>
   </ng-template>
 
-
   <div style="background-color: rgba(57, 99, 155, 0.07);" class="col-md-6 col-md-offset-3">
     <div class=row>
       <div style="margin: 50px">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="baml_header col-md-8">
+              <div role="heading" aria-level="2">Ashtead, England</div>
+              <div role="heading" aria-level="2">UPDATED 2 DECEMBER, 12:00</div>
+            </div>
 
-        <div class="">
-          <div class="baml_header">
-            <div role="heading" aria-level="2">Ashtead, England</div>
-            <div role="heading" aria-level="2">UPDATED 2 DECEMBER, 12:00</div>
+            <div class="col-md-4">
+              <mat-form-field class="weather-local-form-field">
+                <input matInput type="text" placeholder="Ashtead KT21 2JY" [(ngModel)]="value" />
+                <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                  <mat-icon>close</mat-icon>
+                </button>
+              </mat-form-field>
+            </div>
           </div>
         </div>
-
-        <mat-tab-group class="baml_tabGroup">
+        <div class="col-md-12">
+          <div class="row">
+            <button mat-raised-button  style="width:80px" >Back</button>
+            <button mat-raised-button style="width:80px; float:right">Forward</button>
+          </div>
+        </div>
+        <mat-tab-group class="baml_tabGroup col-md-12">
           <mat-tab *ngFor="let day of days">
             <div style="margin:20px">
               <ng-template mat-tab-label>
                 <ng-container *ngTemplateOutlet="tabTemplate;context:day"></ng-container>
               </ng-template>
-
               <div class="row" style="overflow-x: hidden">
                 <div class="col-sm-3" style="width:80px; margin-left:12px" role="heading" aria-level="2">
                   <svg xmlns="http://www.w3.org/2000/svg" tabindex="-1" id="" role="presentation" aria-hidden="true" enable-background="new 0 0 32 32"
@@ -63,7 +76,6 @@
                   </div>
                 </div>
               </div>
-
               <div class="baml_header col-md-3">
                 <div role="heading" aria-level="2">Mostly Sunny . Sat 2, 15:52</div>
               </div>
@@ -83,7 +95,8 @@
                   </table>
 
                   <div style="margin:0px">
-                    <input type="range" min="0" max="1440" value="0" step="1" aria-label="Time" aria-valuetext="12:34, 9°, Precipitation: 20%"/>
+                    <input type="range" min="0" max="1440" value="0" step="1" aria-label="Time" aria-valuetext="12:34, 9°, Precipitation: 20%"
+                    />
                   </div>
                 </div>
               </div>
@@ -91,6 +104,7 @@
           </mat-tab>
         </mat-tab-group>
 
+        <mat-slide-toggle class="col-md-3" color="Accent">Fahrenheit</mat-slide-toggle>
       </div>
     </div>
   </div>

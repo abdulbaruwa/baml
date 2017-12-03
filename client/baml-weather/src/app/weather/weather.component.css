@@ -90,6 +90,16 @@ input[type="range" i] {
 }
  */
  
+ .container_location{
+     margin: 0px auto;
+     width: 1000px;
+ }
+ .container_location > div{
+     width: 33%;
+ }
+
+ 
+ 
  .containers {
     margin: 0px auto;
     width: 70px;

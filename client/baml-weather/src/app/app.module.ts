@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule, MatToolbar, MatMenuModule, MatSliderModule, MatCardModule } from '@angular/material';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
 import { WeatherComponent } from './weather/weather.component';
@@ -34,6 +35,7 @@ import { DaytabComponent } from './daytab/daytab.component';
       MatSliderModule,
       MatCardModule,
       MatTabsModule,
+      MatSlideToggleModule,
       AppRoutingModule
     ],
     providers: [],
