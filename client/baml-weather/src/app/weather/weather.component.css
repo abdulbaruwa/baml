@@ -42,6 +42,23 @@ input, textarea, h4, h5 {
     font-size: 100%;
 }
 
+div.wtr_currIcon {
+    width: 50px;
+    height: 50px;
+    margin: 8px 15px 0 0;
+}
+
+.wtr_condiPrimary > div {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 8px;
+}
+
+.wtr_currIcon, .wtr_currIcon > svg:focus, .wtr_dayimg > svg:focus {
+    outline: none;
+}
+
+/* 
 input[type="range" i] {
     color: rgb(196, 196, 196);
 }
@@ -53,3 +70,4 @@ input[type="range" i] {
     border: initial;
     margin: 2px;
 }
+ */
