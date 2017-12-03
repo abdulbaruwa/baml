@@ -58,6 +58,24 @@ div.wtr_currIcon {
     outline: none;
 }
 
+.wtr_condiTemp {
+    font-family: "Segoe UI light",HelveticaNeue,Helvetica,Roboto,Arial,Sans-Serif;
+    margin-right: 40px;
+}
+
+.wtr_currTemp {
+    font-size: 60px;
+    line-height: 40px;
+    margin-right: 10px;
+}
+
+.wtr_condiPrimary > div {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 8px;
+}
+
+
 /* 
 input[type="range" i] {
     color: rgb(196, 196, 196);
@@ -71,3 +89,18 @@ input[type="range" i] {
     margin: 2px;
 }
  */
+ 
+ .containers {
+    margin: 0px auto;
+    width: 70px;
+}
+
+.containers > div {
+    width: 33%;
+}
+.col1 {
+    float: left;
+}
+.col2 {
+    float: left;
+}
