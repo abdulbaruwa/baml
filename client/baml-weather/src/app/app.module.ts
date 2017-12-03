@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule, MatToolbar, MatMenuModule, MatSliderModule, MatCardModule } from '@angular/material';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
 import { WeatherComponent } from './weather/weather.component';
@@ -30,6 +31,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
       MatMenuModule,
       MatSliderModule,
       MatCardModule,
+      MatTabsModule,
       AppRoutingModule
     ],
     providers: [],
