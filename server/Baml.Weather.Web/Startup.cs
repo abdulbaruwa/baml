@@ -25,7 +25,7 @@ namespace Baml.Weather.Web
         {
           
             var appConfig = Configuration.Get<AppSettings>();
-            services.AddScoped<AppSettings>(cfg => appConfig);
+            services.AddScoped<OpenWeatherSettings>(cfg => appConfig.OpenWeatherSettings);
             services.AddScoped<IFetchManager, FetchManager.FetchManager>();
             services.AddMvc();
             return services.BuildServiceProvider();

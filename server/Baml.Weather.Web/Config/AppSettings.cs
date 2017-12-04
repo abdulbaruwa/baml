@@ -22,15 +22,16 @@
         public Console Console { get; set; }
     }
 
-    public class AppKey
+    public class OpenWeatherSettings
     {
         public string Key { get; set; }
+        public string Url { get; set; }
     }
 
     public class AppSettings
     {
         public Logging Logging { get; set; }
-        public AppKey AppKey { get; set; }
+        public OpenWeatherSettings OpenWeatherSettings { get; set; }
     }
 
 }

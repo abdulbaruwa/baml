@@ -20,16 +20,16 @@ namespace Baml.Weather.Web.FetchManager
 
     public class FetchManager : IFetchManager
     {
-        private AppSettings _appSettings;
+        private readonly OpenWeatherSettings _openWeatherSettings;
 
-        public FetchManager(AppSettings appSettings)
+        public FetchManager(OpenWeatherSettings openWeatherSettings)
         {
-            _appSettings = appSettings;
+            _openWeatherSettings = openWeatherSettings;
         }
 
         public async Task<LocationWeather> FetchSyncWeatherForLocation(int locationId)
         {
-            var json = await RestService.For<IOpenWeatherMapApi>("http://samples.openweathermap.org/data/2.5").GetMap(524901, _appSettings.AppKey.Key);
+            var json = await RestService.For<IOpenWeatherMapApi>(_openWeatherSettings.Url).GetMap(524901, _openWeatherSettings.Key);
             return new LocationWeather() {LastFetched = DateTimeOffset.Now, Location = "Winston"};
         }
     }

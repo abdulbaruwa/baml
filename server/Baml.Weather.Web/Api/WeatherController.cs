@@ -11,11 +11,9 @@ namespace Baml.Weather.Web.Api
     public class WeatherController : Controller
     {
         private readonly IFetchManager _fetchManager;
-        private readonly AppSettings _appSettings;
-        public WeatherController(IFetchManager fetchManager, AppSettings appSettings)
+        public WeatherController(IFetchManager fetchManager)
         {
             _fetchManager = fetchManager;
-            _appSettings = appSettings;
         }
 
         [HttpGet("getbylocation/{location}")]
