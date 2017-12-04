@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Baml.Weather.Web.Core.Models;
+using Baml.Weather.Web.FetchManager;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Baml.Weather.Web.Api
@@ -8,10 +9,17 @@ namespace Baml.Weather.Web.Api
     [Route("api/weather")]
     public class WeatherController : Controller
     {
+        private readonly IFetchManager _fetchManager;
+
+        public WeatherController(IFetchManager fetchManager)
+        {
+            _fetchManager = fetchManager;
+        }
+
         [HttpGet("getbylocation/{location}")]
         public Task<LocationWeather> GetByLocation(string location)
         {
-            return Task.FromResult(new LocationWeather(){LastFetched = DateTimeOffset.Now, Location = location});
+            return _fetchManager.FetchSyncWeatherForLocation(3);
         }
     }
 }
