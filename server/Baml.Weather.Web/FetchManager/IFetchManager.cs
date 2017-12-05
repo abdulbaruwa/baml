@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Baml.Weather.Web.Config;
 using Baml.Weather.Web.Core.Models;
+using Newtonsoft.Json;
 using Refit;
 
 namespace Baml.Weather.Web.FetchManager
@@ -30,7 +31,9 @@ namespace Baml.Weather.Web.FetchManager
         public async Task<LocationWeather> FetchSyncWeatherForLocation(int locationId)
         {
             var json = await RestService.For<IOpenWeatherMapApi>(_openWeatherSettings.Url).GetMap(524901, _openWeatherSettings.Key);
-            return new LocationWeather() {LastFetched = DateTimeOffset.Now, Location = "Winston"};
+            var locationWeather = JsonConvert.DeserializeObject<LocationWeather>(json);
+            return locationWeather;
+            //return new LocationWeather() {LastFetched = DateTimeOffset.Now, Location = "Winston"};
         }
     }
 }
