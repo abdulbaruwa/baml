@@ -64,9 +64,9 @@
 
                 <div class="col-sm-6">
                   <div>
-                    <p>Preciptiation: {{currentDayWeather.precipitation}}%</p>
-                    <p>Wind: {{currentDayWeather.wind}}KMPH</p>
-                    <p>Humidity: {{currentDayWeather.humidity}}%</p>
+                    <p>Preciptiation: {{floor(currentDayWeather.precipitation)}}%</p>
+                    <p>Wind: {{floor(currentDayWeather.wind)}}KMPH</p>
+                    <p>Humidity: {{floor(currentDayWeather.humidity)}}%</p>
                   </div>
                 </div>
               </div>

@@ -60,13 +60,17 @@ export class WeatherComponent implements OnInit {
       return this.convertKelvinToFahrenheit(value);
     }
   }
-
+  
   convertKelvinToCelcuis(value: number): number{
     return Math.floor(value - 273.15);
   }
 
   convertKelvinToFahrenheit(value: number): number{
     return Math.floor(9/5 * (value - 273.15)+32);
+  }
+
+  floor(value: number): number{
+    return Math.floor(value);
   }
   
   setCurrentDayWeatherEntity(dayIndex: number, sliderHourIndex: number ): void{
