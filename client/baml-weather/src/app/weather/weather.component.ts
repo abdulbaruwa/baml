@@ -9,7 +9,7 @@ import { Weather, DayWeather, TimedWeatherDetail } from '../models/weather';
 
 })
 export class WeatherComponent implements OnInit {
-
+  hourSelected: number = 820;
   fiveDayWeather: DayWeather[] = [];
   fiveDayReportArray: Weather[] = [];
   selectedTabIndex: number = 0;
