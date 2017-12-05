@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Baml.Weather.Web.Config;
 using Baml.Weather.Web.Core.Dtos;
-using Baml.Weather.Web.Core.Models;
 using Baml.Weather.Web.FetchManager;
 using Microsoft.AspNetCore.Mvc;
 

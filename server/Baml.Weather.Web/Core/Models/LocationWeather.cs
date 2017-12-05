@@ -4,11 +4,6 @@ using Newtonsoft.Json;
 
 namespace Baml.Weather.Web.Core.Models
 {
-    //public class LocationWeather
-    //{
-    //    public string Location { get; set; }
-    //    public DateTimeOffset LastFetched { get; set; }
-    //}
     public class Main
     {
         public double temp { get; set; }
@@ -76,7 +71,6 @@ namespace Baml.Weather.Web.Core.Models
         public double lat { get; set; }
         public double lon { get; set; }
     }
-
     public class City
     {
         public int id { get; set; }
