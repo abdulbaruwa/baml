@@ -12,6 +12,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { WeatherComponent } from './weather/weather.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { DaytabComponent } from './daytab/daytab.component';
+import { WeatherService } from './services/weather.service';
 
 @NgModule({
     declarations: [
@@ -38,7 +39,7 @@ import { DaytabComponent } from './daytab/daytab.component';
       MatSlideToggleModule,
       AppRoutingModule
     ],
-    providers: [],
+    providers: [WeatherService],
     bootstrap: [AppComponent]
   })
 

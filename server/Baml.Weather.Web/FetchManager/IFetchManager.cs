@@ -57,7 +57,7 @@ namespace Baml.Weather.Web.FetchManager
                     LocaleId = localeId
                 };
 
-                var details = list.Select(x => new TimeWeatherDetail()
+                var details = list.Select(x => new TimedWeatherDetail()
                 {
                     Temperature = x.main.temp,
                     Humidity = x.main.humidity,
@@ -68,7 +68,7 @@ namespace Baml.Weather.Web.FetchManager
                     Precipitation = x.snow.ThreeHourVolume,
                 }).ToArray();
 
-                weatherDto.TimeWeatherDetail = details;
+                weatherDto.TimedWeatherDetail = details;
                 weatherDtos.Add(weatherDto);
             }
 

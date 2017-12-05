@@ -14,10 +14,10 @@ namespace Baml.Weather.Web.Core.Dtos
         public string Locale { get; set; }
         public int LocaleId { get; set; }
 
-        public TimeWeatherDetail[] TimeWeatherDetail { get; set; }
+        public TimedWeatherDetail[] TimedWeatherDetail { get; set; }
     }
 
-    public class TimeWeatherDetail
+    public class TimedWeatherDetail
     {
 
         public string Day { get; set; }

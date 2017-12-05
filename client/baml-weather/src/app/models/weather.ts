@@ -14,7 +14,7 @@ export class DayWeather {
     weatherDay: string;
     locale: string;
     localeId: number;
-    TimedWeatherDetail: TimedWeatherDetail[]
+    timedWeatherDetail: TimedWeatherDetail[]
  }
 
 export class TimedWeatherDetail{
