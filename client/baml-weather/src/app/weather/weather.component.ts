@@ -21,7 +21,6 @@ export class WeatherComponent implements OnInit {
   days = [{day: "01 Dec 2017"}, {day: "02 Dec 2017"}, {day: "03 Dec 2017"}, {day: "04 Dec 2017"}, {day: "05 Dec 2017"} ]
   currentDayWeather: TimedWeatherDetail;
   lastUpdate: string;
-  
 
   onTabChange(event) {
       if(event == undefined) return;
@@ -51,6 +50,24 @@ export class WeatherComponent implements OnInit {
     }
   }
 
+  tempConvert(value: number): number{
+    if(this.tempUnitIsCelsius)
+    {
+      return this.convertKelvinToCelcuis(value);
+    }
+    else
+    {
+      return this.convertKelvinToFahrenheit(value);
+    }
+  }
+
+  convertKelvinToCelcuis(value: number): number{
+    return Math.floor(value - 273.15);
+  }
+
+  convertKelvinToFahrenheit(value: number): number{
+    return Math.floor(9/5 * (value - 273.15)+32);
+  }
   
   setCurrentDayWeatherEntity(dayIndex: number, sliderHourIndex: number ): void{
     let sliderHour = 0;

@@ -66,7 +66,7 @@ div.wtr_currIcon {
 .wtr_currTemp {
     font-size: 60px;
     line-height: 40px;
-    margin-right: 10px;
+    margin-right: 0px;
 }
 
 .wtr_condiPrimary > div {
@@ -112,7 +112,7 @@ input[type="range" i] {
     float: left;
 }
 .col2 {
-    float: left;
+    float: right;
 }
 
 

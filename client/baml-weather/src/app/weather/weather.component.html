@@ -56,15 +56,9 @@
                     />
                   </svg>
                 </div>
-
                 <div class="col-md-3 wtr_condiPrimary">
                   <div class="wtr_condiTemp col-md-6">
-                    <div class="containers">
-                      <div class="wtr_currTemp col1">5</div>
-                      <div class="wtr_currPicke col2">
-                        <div>{{tempUnitSuffix}}</div>
-                      </div>
-                    </div>
+                    <p><span class="wtr_currTemp">{{tempConvert(currentDayWeather.temperature)}}</span>{{tempUnitSuffix}}</p>
                   </div>
                 </div>
 
