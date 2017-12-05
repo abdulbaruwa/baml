@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Baml.Weather.Web.Core.Models
 {
@@ -41,6 +42,14 @@ namespace Baml.Weather.Web.Core.Models
 
     public class Snow
     {
+        [JsonProperty("3h")]
+        public double ThreeHourVolume { get; set; }
+    }
+
+    public class Rain
+    {
+        [JsonProperty("3h")]
+        public double ThreeHourVolume { get; set; }
     }
 
     public class Sys
@@ -51,6 +60,8 @@ namespace Baml.Weather.Web.Core.Models
     public class List
     {
         public int dt { get; set; }
+        public DateTimeOffset DateTimeOffset => DateTimeOffset.FromUnixTimeSeconds(dt);
+        public DateTime Day => DateTimeOffset.FromUnixTimeSeconds(dt).Date;
         public Main main { get; set; }
         public List<Weather> weather { get; set; }
         public Clouds clouds { get; set; }
