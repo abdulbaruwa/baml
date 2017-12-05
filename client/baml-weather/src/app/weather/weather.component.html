@@ -75,21 +75,21 @@
               </div>
               <div class="row" style="margin:0px">
                 <div>
-                  <table class="table">
-                    <tr>
-                      <th>14:00</th>
-                      <th>17:00</th>
-                      <th>20:00</th>
-                      <th>23:00</th>
-                      <th>01:00</th>
+                  <table class="table " style="text-align:center">
+                    <tr >
+                      <th>00:00</th>
                       <th>03:00</th>
                       <th>06:00</th>
                       <th>09:00</th>
+                      <th>12:00</th>
+                      <th>15:00</th>
+                      <th>18:00</th>
+                      <th>21:00</th>
+                      <th>23:00</th>
                     </tr>
                   </table>
                   <div style="margin:0px">
-                    <label>{{hourSelected}}</label>
-                    <!-- <label>{{currentDayWeather}}</label> -->
+                    <!-- #debug  <label>{{hourSelected}}</label> -->
                     <input type="range" min="0" max="31" (change)="onTimeSlideChange($event)" [(ngModel)]="hourSelected" step="1" aria-label="Time" aria-valuetext="12:34, 9°, Precipitation: 20%"/>
                   </div>
                 </div>

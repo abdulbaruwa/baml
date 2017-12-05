@@ -89,7 +89,9 @@ input[type="range" i] {
     margin: 2px;
 }
  */
- 
+th{
+    text-align:center;
+} 
  .container_location{
      margin: 0px auto;
      width: 1000px;
