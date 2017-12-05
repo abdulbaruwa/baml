@@ -95,7 +95,8 @@
                   </table>
                   <div style="margin:0px">
                     <label>{{hourSelected}}</label>
-                    <input type="range" min="0" max="1440" [(ngModel)]="hourSelected" step="90" aria-label="Time" aria-valuetext="12:34, 9°, Precipitation: 20%"/>
+                    <!-- <label>{{currentDayWeather}}</label> -->
+                    <input type="range" min="0" max="31" (change)="onTimeSlideChange($event)" [(ngModel)]="hourSelected" step="1" aria-label="Time" aria-valuetext="12:34, 9°, Precipitation: 20%"/>
                   </div>
                 </div>
               </div>

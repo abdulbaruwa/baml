@@ -9,7 +9,7 @@ import { Weather, DayWeather, TimedWeatherDetail } from '../models/weather';
 
 })
 export class WeatherComponent implements OnInit {
-  hourSelected: number = 820;
+  hourSelected: number = 0;
   fiveDayWeather: DayWeather[] = [];
   fiveDayReportArray: Weather[] = [];
   selectedTabIndex: number = 0;
@@ -19,14 +19,20 @@ export class WeatherComponent implements OnInit {
   date = "03 Decmber 2017"
   //ctx = {day: this.date}
   days = [{day: "01 Dec 2017"}, {day: "02 Dec 2017"}, {day: "03 Dec 2017"}, {day: "04 Dec 2017"}, {day: "05 Dec 2017"} ]
-  currentDayWeather: Weather;
+  currentDayWeather: TimedWeatherDetail;
   lastUpdate: string;
   
 
   onTabChange(event) {
       if(event == undefined) return;
       if(event.index == undefined) return;
-      this.setCurrentDayWeatherEntity(event.index)
+      this.setCurrentDayWeatherEntity(event.index, this.hourSelected)
+  }
+
+  onTimeSlideChange(event)
+  {
+    if(event == undefined) return;
+    this.setCurrentDayWeatherEntity(this.selectedTabIndex, this.hourSelected)
   }
 
   onSlideChange(event){
@@ -46,8 +52,11 @@ export class WeatherComponent implements OnInit {
   }
 
   
-  setCurrentDayWeatherEntity(index: number): void{
-    this.currentDayWeather = this.fiveDayReportArray[index];
+  setCurrentDayWeatherEntity(dayIndex: number, sliderHourIndex: number ): void{
+    let sliderHour = 0;
+    if(sliderHourIndex > 0) sliderHour = Math.floor(sliderHourIndex / 4);
+
+    this.currentDayWeather = this.fiveDayWeather[dayIndex].TimedWeatherDetail[sliderHour];
   }
 
   constructor() {
@@ -71,7 +80,7 @@ export class WeatherComponent implements OnInit {
 
     // well be set when service call is made
     this.lastUpdate = "03 December, 20:35";
-    this.setCurrentDayWeatherEntity(0);
+    // this.setCurrentDayWeatherEntity(0);
     this.fiveDayWeather = [
       {
           "weatherDay": "01/02/2017",
@@ -432,7 +441,8 @@ export class WeatherComponent implements OnInit {
           ]
       }
   ]
-  }
+  this.setCurrentDayWeatherEntity(this.selectedTabIndex, this.hourSelected);
+}
 
 }
 
