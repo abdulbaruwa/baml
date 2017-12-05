@@ -1,5 +1,5 @@
 <div class="">
-  <ng-template #tabTemplate let-dayEntity="day">
+  <ng-template #tabTemplate let-dayEntity="weatherDay">
     <div>
       <div>{{dayEntity}}</div>
 
@@ -38,7 +38,7 @@
           </div>
         </div>
         <mat-tab-group class="baml_tabGroup col-md-12" [(selectedIndex)]="selectedTabIndex" (selectedTabChange)="onTabChange($event)">
-          <mat-tab *ngFor="let day of fiveDayReportArray">
+          <mat-tab *ngFor="let day of fiveDayWeather">
             <div style="margin:20px">
               <ng-template mat-tab-label>
                 <ng-container *ngTemplateOutlet="tabTemplate;context:day"></ng-container>
@@ -93,7 +93,6 @@
                       <th>09:00</th>
                     </tr>
                   </table>
-
                   <div style="margin:0px">
                     <input type="range" min="0" max="1440" value="0" step="1" aria-label="Time" aria-valuetext="12:34, 9°, Precipitation: 20%"                    />
                   </div>

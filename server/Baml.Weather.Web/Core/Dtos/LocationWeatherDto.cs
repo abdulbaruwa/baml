@@ -14,10 +14,10 @@ namespace Baml.Weather.Web.Core.Dtos
         public string Locale { get; set; }
         public int LocaleId { get; set; }
 
-        public WeatherDetailDto[] WeatherDetailDtos { get; set; }
+        public TimeWeatherDetail[] TimeWeatherDetail { get; set; }
     }
 
-    public class WeatherDetailDto
+    public class TimeWeatherDetail
     {
 
         public string Day { get; set; }
@@ -28,6 +28,7 @@ namespace Baml.Weather.Web.Core.Dtos
         public string ShortDescription { get; set; }
         public DateTimeOffset DayTime { get; set; }
         public double Precipitation { get; set; }
+        public int Hour => DayTime.Hour;
 
     }
 }

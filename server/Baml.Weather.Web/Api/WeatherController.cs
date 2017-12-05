@@ -21,7 +21,6 @@ namespace Baml.Weather.Web.Api
         [HttpGet("getbylocation/{location}")]
         public Task<IEnumerable<WeatherDto>> GetByLocation(string location)
         {
-             
             return _fetchManager.FetchSyncWeatherForLocation(3);
         }
     }

@@ -8,5 +8,23 @@ export class Weather {
     shortDescription: string;
     daytime: string;
     precipitation: number; 
-    
 }
+
+export class DayWeather {
+    weatherDay: string;
+    locale: string;
+    localeId: number;
+    TimedWeatherDetail: TimedWeatherDetail[]
+ }
+
+export class TimedWeatherDetail{
+    temperature: number;
+    wind: number;
+    windDirection: number;
+    humidity: number
+    shortDescription: string;
+    dayTime: string;
+    precipitation: number; 
+    hour: number;
+}
+
