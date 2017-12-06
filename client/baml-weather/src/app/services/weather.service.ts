@@ -17,9 +17,17 @@ export class WeatherService {
   private serviceBase = 'http://localhost:63494';
 
   search(term: string):Observable<WeatherLocation[]>{
+    var url = `${this.serviceBase}${this.locationSearchServiceUrl}${term}`;
+    console.log(url);
     return this.http
-    .get('${this.serviceBase}${this.locationSearchServiceUrl}${term}')
-    .map((r: Response) => r.json().data as WeatherLocation[])
+    .get(url)
+    .map((r: Response) =>
+    {
+      var resp = r.json();
+      // console.log(resp)
+      return  resp as WeatherLocation[];
+    }
+  )
     .catch((error: any) => {
         console.error('An errored occured whilst searching on location', error);
         return Observable.throw(error.message || error);

@@ -29,11 +29,11 @@
                     <mat-icon>close</mat-icon>
                   </button>
                 </mat-form-field>
-                <input #searchBox id="search-box" (keyup)="search(searchBox.Value)"/>
+                <input #searchBox id="search-box" (keyup)="search(searchBox.value)"/>
                 <div>
                     <div *ngFor="let loc of locales | async"
-                         (click)="gotoDetail(hero)" class="search-result" >
-                      {{hero.name}}
+                         (click)="gotoDetail()" class="search-result" >
+                      {{loc.name}}
                     </div>
                   </div>
               </div>
