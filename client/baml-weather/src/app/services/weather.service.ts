@@ -12,7 +12,7 @@ import { Console } from '@angular/core/src/console';
 export class WeatherService {
 
   constructor(private http: Http) { }
-  private weatherServiceUrl = '/api/weather/getbylocation/Birming';
+  private weatherServiceUrl = '/api/weather/getbylocation/';
   private locationSearchServiceUrl = '/api/weather/searchlocation/';
   private serviceBase = 'http://localhost:63494';
 
@@ -34,9 +34,9 @@ export class WeatherService {
     });
   }
 
-  getWeatherForecast(): Promise<Array<DayWeather>>{
+  getWeatherForecast(locationId: number): Promise<Array<DayWeather>>{
     return this.http
-    .get(this.serviceBase + this.weatherServiceUrl)
+    .get(this.serviceBase + this.weatherServiceUrl + `${locationId}`)
     .toPromise()
     .then((response) => {
       var result = response.json()

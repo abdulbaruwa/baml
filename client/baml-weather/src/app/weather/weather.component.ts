@@ -32,6 +32,16 @@ export class WeatherComponent implements OnInit {
   date = "03 Decmber 2017"
   currentDayWeather: TimedWeatherDetail;
   lastUpdate: string;
+  selectedLocation: WeatherLocation;
+
+  onLocationChange(event) {
+    if (event == undefined) return;
+    if (!event.source.selected) return;
+    this.selectedLocation = event.source;
+    console.log(event.source.value);
+    
+    this.getWeatherForecast(this.selectedLocation.localeId)
+  }
 
   onTabChange(event) {
     if (event == undefined) return;
@@ -92,8 +102,16 @@ export class WeatherComponent implements OnInit {
   constructor(private weatherService: WeatherService) {
   }
 
-  ngOnInit(): void {
+  private getWeatherForecast(locationId: number){
+    this.weatherService.getWeatherForecast(3).then(forecastArray => {
+      this.fiveDayWeather = forecastArray;
+      this.setCurrentDayWeatherEntity(this.selectedTabIndex, this.hourSelected);
+    });
+  }
 
+  ngOnInit(): void {
+    // default location 
+    this.selectedLocation = {name:'London', localeId: 23}
     // Init search 
     this.locales = this.searchTerms
       .debounceTime(300)
@@ -101,21 +119,15 @@ export class WeatherComponent implements OnInit {
       .switchMap(term => {
         console.log('In Search Observable with term ' + term);
         return term ? this.weatherService.search(term) : Observable.of<WeatherLocation[]>([])
-      }
-    )
+      })
       .catch(error => {
 
         // Ideally error handling will be different than just spewing to the console.
         console.log('Exception occured in Weather observable search: ${error}');
         return Observable.of<WeatherLocation[]>([]);
       })
-
-    var test: any;
-    this.weatherService.getWeatherForecast().then(forecastArray => {
-      this.fiveDayWeather = forecastArray;
-      this.setCurrentDayWeatherEntity(this.selectedTabIndex, this.hourSelected);
-    });
-
+    
+    this.getWeatherForecast(3);
     this.lastUpdate = "03 December, 20:35";
 
     // this.fiveDayReportArray = [

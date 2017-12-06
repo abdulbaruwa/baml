@@ -18,15 +18,15 @@
           <div class="col-md-12">
             <div class="row">
               <div class="baml_header col-md-8">
-                <div role="heading" aria-level="2">{{currentDayWeather.locale}}</div>
+                <!-- <div role="heading" aria-level="2">{{currentDayWeather.locale}}</div> -->
                 <div role="heading" aria-level="2">UPDATED {{lastUpdate}}</div>
               </div>
 
               <div class="col-md-4">
                 <mat-form-field class="weather-local-from-field">
-                    <input #searchBox id="search-box" matInput placeholder="City" aria-label="State" [matAutocomplete]="auto"  (keyup)="search(searchBox.value)">
+                    <input #searchBox id="search-box" matInput placeholder="City" aria-label="State" [value]="selectedLocation.name"  [matAutocomplete]="auto"  (keyup)="search(searchBox.value)" >
                     <mat-autocomplete #auto="matAutocomplete">
-                      <mat-option *ngFor="let state of locales | async" [value]="state.name">
+                      <mat-option *ngFor="let state of locales | async" [value]="state.name" (onSelectionChange)="onLocationChange($event)">
                         <!-- <img style="vertical-align:middle;" aria-hidden src="{{state.flag}}" height="25" /> -->
                         <span>{{state.name}}</span> |
                         <small>Country: {{state.country}}</small>
