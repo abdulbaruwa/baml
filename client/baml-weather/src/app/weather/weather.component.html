@@ -23,19 +23,16 @@
               </div>
 
               <div class="col-md-4">
-                <mat-form-field class="weather-local-form-field">
-                  <input matInput type="text" placeholder="Ashtead KT21 2JY" [(ngModel)]="value" />
-                  <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
-                    <mat-icon>close</mat-icon>
-                  </button>
-                </mat-form-field>
-                <input #searchBox id="search-box" (keyup)="search(searchBox.value)"/>
-                <div>
-                    <div *ngFor="let loc of locales | async"
-                         (click)="gotoDetail()" class="search-result" >
-                      {{loc.name}}
-                    </div>
-                  </div>
+                <mat-form-field class="weather-local-from-field">
+                    <input #searchBox id="search-box" matInput placeholder="City" aria-label="State" [matAutocomplete]="auto"  (keyup)="search(searchBox.value)">
+                    <mat-autocomplete #auto="matAutocomplete">
+                      <mat-option *ngFor="let state of locales | async" [value]="state.name">
+                        <!-- <img style="vertical-align:middle;" aria-hidden src="{{state.flag}}" height="25" /> -->
+                        <span>{{state.name}}</span> |
+                        <small>Country: {{state.country}}</small>
+                      </mat-option>
+                    </mat-autocomplete>
+                  </mat-form-field>
               </div>
             </div>
           </div>
