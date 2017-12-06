@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Baml.Weather.Web", "Baml.Weather.Web\Baml.Weather.Web.csproj", "{E9CA94A6-323E-48EF-AB1F-72D831DF5168}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Baml.Weather.Web", "Baml.Weather.Web\Baml.Weather.Web.csproj", "{E9CA94A6-323E-48EF-AB1F-72D831DF5168}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{23F535C0-C043-4C62-B9E2-D253E66CBC1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Baml.Weather.Web.UnitTests", "..\Baml.Weather.Web.UnitTests\Baml.Weather.Web.UnitTests.csproj", "{4393E833-8E1E-4139-B536-CCA7D95BA92D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Baml.Weather.Web.UnitTests", "..\Baml.Weather.Web.UnitTests\Baml.Weather.Web.UnitTests.csproj", "{4393E833-8E1E-4139-B536-CCA7D95BA92D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewFolder1", "NewFolder1", "{DC3FA1BB-C9FA-402F-9F32-5E253CA76B8A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

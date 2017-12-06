@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Weather, DayWeather, TimedWeatherDetail } from '../models/weather';
+import { Weather, DayWeather, TimedWeatherDetail, WeatherLocation } from '../models/weather';
 import { WeatherService } from '../services/weather.service';
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
+
 // import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 @Component({
   selector: 'app-weather',
@@ -9,6 +12,8 @@ import { WeatherService } from '../services/weather.service';
 
 })
 export class WeatherComponent implements OnInit {
+  locales: Observable<WeatherLocation[]>
+  private searchTerms = new Subject<string>()
   hourSelected: number = 0;
   fiveDayWeather: DayWeather[] = [];
   fiveDayReportArray: Weather[] = [];
@@ -79,6 +84,10 @@ export class WeatherComponent implements OnInit {
     this.currentDayWeather = this.fiveDayWeather[dayIndex].timedWeatherDetail[sliderHour];
   }
 
+  search(term: string): void{
+    this.searchTerms.next(term);
+  }
+  
   constructor(private weatherService: WeatherService) {
   }
 

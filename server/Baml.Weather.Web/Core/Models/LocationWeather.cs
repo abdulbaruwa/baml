@@ -78,6 +78,12 @@ namespace Baml.Weather.Web.Core.Models
         public Coord coord { get; set; }
         public string country { get; set; }
     }
+ public class Location
+    {
+        public int id { get; set; }
+        public string name { get; set; }
+        public string country { get; set; }
+    }
 
     public class LocationWeather
     {
