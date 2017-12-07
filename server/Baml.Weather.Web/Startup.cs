@@ -30,10 +30,13 @@ namespace Baml.Weather.Web
             var appConfig = Configuration.Get<AppSettings>();
             services.AddScoped<OpenWeatherSettings>(cfg => appConfig.OpenWeatherSettings);
             services.AddScoped<IFetchManager, FetchManager.FetchManager>();
+            services.AddScoped<IWeatherApi, WeatherApi>();
+            services.AddScoped<IWeatherRepository, WeatherRepository>();
+
             services.AddDbContext<WeatherDbContext>(option => option.UseInMemoryDatabase("WeatherInMemoryDatabase"));
+
             services.AddCors();
             services.AddMvc();
-            services.AddScoped<IWeatherRepository, WeatherRepository>();
             return services.BuildServiceProvider();
         }
 

@@ -5,16 +5,18 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using Baml.Weather.Web.Api;
+using Baml.Weather.Web.Config;
 using Baml.Weather.Web.Core.Dtos;
 using Baml.Weather.Web.Core.Models;
 using Baml.Weather.Web.Infrastructure;
 using Baml.Weather.Web.Interfaces;
+using Microsoft.AspNetCore.Authorization.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
 namespace Baml.Weather.Web.Core
 {
-    class WeatherRepository : IWeatherRepository
+   public class WeatherRepository : IWeatherRepository
     {
         private readonly WeatherDbContext _databaseContext;
 
@@ -25,8 +27,7 @@ namespace Baml.Weather.Web.Core
 
         public Task<List<Location>> CityListAsyc()
         {
-            return _databaseContext.Locations.OrderBy(s => s.name)
-                .ToListAsync();
+            return _databaseContext.Locations.OrderBy(s => s.name).ToListAsync();
         }
 
         public Task LoadStaticCityData()
@@ -43,9 +44,36 @@ namespace Baml.Weather.Web.Core
             return _databaseContext.Locations.Where(x => x.name.StartsWith(name, StringComparison.CurrentCultureIgnoreCase));
         }
 
-        public IQueryable<WeatherDto> GetWeatherById(int locationId)
+        public Task<List<WeatherDto>> GetWeatherById(int locationId)
         {
-            return _databaseContext.Weathers.Where(x => x.LocaleId == locationId);
+            var cache = _databaseContext.WeatherCache.FirstOrDefault(x => x.LocaleId == locationId);
+
+            if (cache == null) return Task.FromResult(new List<WeatherDto>());
+            var weatherDtoList = JsonConvert.DeserializeObject<List<WeatherDto>>(cache.Json);
+            return Task.FromResult(weatherDtoList);
+        }
+
+        public Task UpsertWeatherDtoAsync(List<WeatherDto> weatherDtos)
+        {
+            if (! weatherDtos.Any()) return Task.CompletedTask;
+            var localeId = weatherDtos.First().LocaleId;
+
+            var entity = _databaseContext.WeatherCache.FirstOrDefault(x => x.LocaleId == localeId);
+            if (entity != null)
+            {
+                entity.Json = JsonConvert.SerializeObject(weatherDtos);
+                _databaseContext.WeatherCache.Update(entity);
+            }
+            else
+            {
+                var newEntity = new WeatherCache()
+                {
+                    LocaleId = localeId,
+                    Json = JsonConvert.SerializeObject(weatherDtos)
+                };
+                _databaseContext.WeatherCache.Add(newEntity);
+            }
+            return _databaseContext.SaveChangesAsync();
         }
     }
 }

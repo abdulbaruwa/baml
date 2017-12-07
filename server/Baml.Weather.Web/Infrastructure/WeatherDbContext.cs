@@ -12,6 +12,7 @@ namespace Baml.Weather.Web.Infrastructure
         }
         public DbSet<Location> Locations { get; set; }
         public DbSet<WeatherDto> Weathers { get; set; }
+        public DbSet<WeatherCache> WeatherCache { get; set; }
         public DbSet<TimedWeatherDetail> TimedWeatherDetails { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -22,6 +23,7 @@ namespace Baml.Weather.Web.Infrastructure
             modelBuilder.Entity<TimedWeatherDetail>().ToTable("TimeWeatherDetail");
 
             modelBuilder.Entity<WeatherDto>().HasKey(x => x.LocaleId);
+            modelBuilder.Entity<WeatherCache>().HasKey(x => x.LocaleId);
             modelBuilder.Entity<TimedWeatherDetail>().HasKey(x => x.Id);
             modelBuilder.Entity<WeatherDto>().HasMany(x => x.TimedWeatherDetail);
         }

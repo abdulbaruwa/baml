@@ -25,4 +25,10 @@ namespace Baml.Weather.Web.Core.Dtos
         public double Precipitation { get; set; }
         public int Hour => DayTime.Hour;
     }
+
+    public class WeatherCache
+    {
+        public int LocaleId { get; set; }
+        public string Json { get; set; }
+    }
 }
