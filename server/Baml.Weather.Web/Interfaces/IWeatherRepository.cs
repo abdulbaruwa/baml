@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Baml.Weather.Web.Core.Dtos;
 using Baml.Weather.Web.Core.Models;
 
 namespace Baml.Weather.Web.Interfaces
@@ -10,5 +11,6 @@ namespace Baml.Weather.Web.Interfaces
         Task<List<Location>> CityListAsyc();
         Task LoadStaticCityData();
         IQueryable<Location> FindCity(string name);
+        IQueryable<WeatherDto> GetWeatherById(int locationId);
     }
 }

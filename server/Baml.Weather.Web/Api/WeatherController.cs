@@ -21,10 +21,10 @@ namespace Baml.Weather.Web.Api
             _weatherRepository = weatherRepository;
         }
 
-        [HttpGet("getbylocation/{location}")]
-        public Task<IEnumerable<WeatherDto>> GetByLocation(string location)
+        [HttpGet("getbylocation/{locationId}")]
+        public Task<IEnumerable<WeatherDto>> GetByLocation(int locationId)
         {
-            return _fetchManager.FetchSyncWeatherForLocation(3);
+            return _fetchManager.FetchAndSyncWeatherForLocationAsync(locationId);
         }
 
         [HttpGet("searchlocation/{location}")]

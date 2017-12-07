@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using Baml.Weather.Web.Api;
+using Baml.Weather.Web.Core.Dtos;
 using Baml.Weather.Web.Core.Models;
 using Baml.Weather.Web.Infrastructure;
 using Baml.Weather.Web.Interfaces;
@@ -39,8 +40,12 @@ namespace Baml.Weather.Web.Core
 
         public IQueryable<Location> FindCity(string name)
         {
-            return _databaseContext.Locations.Where(x => x.name.IndexOf(name, StringComparison.CurrentCultureIgnoreCase) > 0);
+            return _databaseContext.Locations.Where(x => x.name.StartsWith(name, StringComparison.CurrentCultureIgnoreCase));
+        }
 
+        public IQueryable<WeatherDto> GetWeatherById(int locationId)
+        {
+            return _databaseContext.Weathers.Where(x => x.LocaleId == locationId);
         }
     }
 }

@@ -8,10 +8,13 @@ namespace Baml.Weather.Web.Core.Dtos
         public string Locale { get; set; }
         public int LocaleId { get; set; }
         public TimedWeatherDetail[] TimedWeatherDetail { get; set; }
+        public DateTimeOffset TimeFetched { get; set; }
     }
 
     public class TimedWeatherDetail
     {
+        public Guid Id { get; set; }
+        public int LocaleId { get; set; }
         public string Day { get; set; }
         public double Temperature { get; set; }
         public double Wind { get; set; }
