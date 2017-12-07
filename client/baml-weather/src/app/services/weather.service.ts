@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
-import { DayWeather, TimedWeatherDetail, WeatherLocation } from '../models/weather';
+import { WeatherForecast, TimedWeatherDetail, WeatherLocation } from '../models/weather';
 import { Observable } from 'rxjs/Observable';
 import { Console } from '@angular/core/src/console';
                       
@@ -36,7 +36,7 @@ export class WeatherService {
     });
   }
 
-  getWeatherForecast(locationId: number): Promise<Array<DayWeather>>{
+  getWeatherForecast(locationId: number): Promise<Array<WeatherForecast>>{
     // Abdul TDOO: Time permiting Bring in a logging component
     console.log(`Service called for id: ${locationId}`)
     return this.http
@@ -44,7 +44,7 @@ export class WeatherService {
     .toPromise()
     .then((response) => {
       var result = response.json()
-      return result as  DayWeather[];
+      return result as  WeatherForecast[];
     })
     .catch(this.errorHandler);
   }

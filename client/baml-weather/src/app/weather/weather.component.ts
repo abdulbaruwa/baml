@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DayWeather, TimedWeatherDetail, WeatherLocation } from '../models/weather';
+import { WeatherForecast, TimedWeatherDetail, WeatherLocation } from '../models/weather';
 import { WeatherService } from '../services/weather.service';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
@@ -22,12 +22,12 @@ export class WeatherComponent implements OnInit {
   locales: Observable<WeatherLocation[]>
   private searchTerms = new Subject<string>()
   hourSelected: number = 0;
-  fiveDayWeather: DayWeather[] = [];
+  fiveDayWeather: WeatherForecast[] = [];
   selectedTabIndex: number = 0;
   tempUnitIsCelsius: boolean = true;
   tempUnitText: string = "Celsius";
   tempUnitSuffix = "°C"
-  date = "03 Decmber 2017"
+  date = new Date().toLocaleDateString();
   currentDayWeather: TimedWeatherDetail;
   lastUpdate: string;
   selectedLocation: WeatherLocation;
