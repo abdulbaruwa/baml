@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
-import { WeatherForecast, TimedWeatherDetail, WeatherLocation } from '../models/weather';
+import { WeatherForecast, TimedWeatherDetail, ForecastLocation } from '../models/weather';
 import { Observable } from 'rxjs/Observable';
 import { Console } from '@angular/core/src/console';
                       
@@ -18,7 +18,7 @@ export class WeatherService {
   private locationSearchServiceUrl = '/api/weather/searchlocation/';
   private serviceBase = 'http://localhost:63494';
 
-  search(term: string):Observable<WeatherLocation[]>{
+  search(term: string):Observable<ForecastLocation[]>{
     var url = `${this.serviceBase}${this.locationSearchServiceUrl}${term}`;
     console.log(url);
     return this.http
@@ -27,7 +27,7 @@ export class WeatherService {
     {
       var resp = r.json();
       // console.log(resp)
-      return  resp as WeatherLocation[];
+      return  resp as ForecastLocation[];
     }
   )
     .catch((error: any) => {

@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 import { HttpModule, Http, XHRBackend, Response, ResponseOptions } from '@angular/http';
-import { WeatherForecast, TimedWeatherDetail, WeatherLocation } from '../models/weather';
+import { WeatherForecast, TimedWeatherDetail, ForecastLocation } from '../models/weather';
 import { Observable } from 'rxjs/Observable';
 import { Console } from '@angular/core/src/console';
 

@@ -18,7 +18,7 @@ export class TimedWeatherDetail{
     hour: number;
 }
 
-export class WeatherLocation{
+export class ForecastLocation{
     name: string;
     localeId: number;
 }

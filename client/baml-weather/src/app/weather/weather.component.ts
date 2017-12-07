@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { WeatherForecast, TimedWeatherDetail, WeatherLocation } from '../models/weather';
+import { WeatherForecast, TimedWeatherDetail, ForecastLocation } from '../models/weather';
 import { WeatherService } from '../services/weather.service';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
@@ -19,7 +19,7 @@ import 'rxjs/add/operator/distinctUntilChanged';
 
 })
 export class WeatherComponent implements OnInit {
-  locales: Observable<WeatherLocation[]>
+  locales: Observable<ForecastLocation[]>
   private searchTerms = new Subject<string>()
   hourSelected: number = 0;
   fiveDayWeather: WeatherForecast[] = [];
@@ -30,7 +30,7 @@ export class WeatherComponent implements OnInit {
   date = new Date().toLocaleDateString();
   currentDayWeather: TimedWeatherDetail;
   lastUpdate: string;
-  selectedLocation: WeatherLocation;
+  selectedLocation: ForecastLocation;
 
   onLocationChange(event) {
     if (event == undefined) return;
@@ -116,13 +116,13 @@ export class WeatherComponent implements OnInit {
       .distinctUntilChanged()
       .switchMap(term => {
         console.log('In Search Observable with term ' + term);
-        return term ? this.weatherService.search(term) : Observable.of<WeatherLocation[]>([])
+        return term ? this.weatherService.search(term) : Observable.of<ForecastLocation[]>([])
       })
       .catch(error => {
 
         // Ideally error handling will be different than just spewing to the console.
         console.log('Exception occured in Weather observable search: ${error}');
-        return Observable.of<WeatherLocation[]>([]);
+        return Observable.of<ForecastLocation[]>([]);
       })
     
     this.getWeatherForecast(3);
