@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Baml.Weather.Web.Config;
 using Baml.Weather.Web.Core.Dtos;
 using Baml.Weather.Web.Core.Models;
 using Baml.Weather.Web.FetchManager;
@@ -31,7 +32,7 @@ namespace Baml.Weather.Web.UnitTests.Unit
 
             mockRepo.Setup(repo => repo.GetWeatherById(3)).Returns(cacheWeatherOutput.AsQueryable());
             
-            var sut = new FetchManager.FetchManager(mockWeatherApi.Object);
+            var sut = new FetchManager.FetchManager(mockWeatherApi.Object, mockRepo.Object, new OpenWeatherSettings());
 
             var result = (await sut.FetchAndSyncWeatherForLocationAsync(3)).FirstOrDefault();
 
