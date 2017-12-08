@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\server\Baml.Weather.Web\Baml.Weather.Web.csproj" />
+    <ProjectReference Include="..\Baml.Weather.Web\Baml.Weather.Web.csproj" />
   </ItemGroup>
 
 </Project>

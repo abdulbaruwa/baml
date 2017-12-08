@@ -35,10 +35,10 @@ export class WeatherComponent implements OnInit {
   onLocationChange(event) {
     if (event == undefined) return;
     if (!event.source.selected) return;
-    this.selectedLocation = event.source;
+    this.selectedLocation = event.source.value;
     console.log(event.source.value);
     
-    this.getWeatherForecast(this.selectedLocation.localeId)
+    this.getWeatherForecast(this.selectedLocation.id)
   }
 
   onTabChange(event) {
@@ -101,7 +101,7 @@ export class WeatherComponent implements OnInit {
   }
 
   private getWeatherForecast(locationId: number){
-    this.weatherService.getWeatherForecast(3).then(forecastArray => {
+    this.weatherService.getWeatherForecast(locationId).then(forecastArray => {
       this.fiveDayWeather = forecastArray;
       this.setCurrentDayWeatherEntity(this.selectedTabIndex, this.hourSelected);
     });
@@ -109,10 +109,10 @@ export class WeatherComponent implements OnInit {
 
   ngOnInit(): void {
     // default location 
-    this.selectedLocation = {name:'London', localeId: 23}
+    this.selectedLocation = {name:'London', id: 2643743, country:'UK'}
     // Init search 
     this.locales = this.searchTerms
-      .debounceTime(300)
+      .debounceTime(250)
       .distinctUntilChanged()
       .switchMap(term => {
         console.log('In Search Observable with term ' + term);
@@ -125,8 +125,8 @@ export class WeatherComponent implements OnInit {
         return Observable.of<ForecastLocation[]>([]);
       })
     
-    this.getWeatherForecast(3);
-    this.lastUpdate = "03 December, 20:35";
+    this.getWeatherForecast(this.selectedLocation.id);
+    this.lastUpdate =  new Date().toLocaleDateString();
 
   }
 

@@ -25,9 +25,9 @@ namespace Baml.Weather.Web.UnitTests.Unit
                 .RuleFor(f => f.snow, x => snow.Generate())
                 .RuleFor(f => f.weather, x => weather.Generate(1).ToList())
                 .RuleFor(f => f.clouds, x => clouds.Generate());
-                
+
             var locationWeather = new Faker<LocationWeather>()
-                
+
                 .RuleFor(f => f.city, c => city)
                 .RuleFor(f => f.list, l => list.Generate(3).ToList());
             return locationWeather.Generate();

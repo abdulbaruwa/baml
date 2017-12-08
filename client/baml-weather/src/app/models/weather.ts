@@ -20,5 +20,6 @@ export class TimedWeatherDetail{
 
 export class ForecastLocation{
     name: string;
-    localeId: number;
+    id: number;
+    country: string;
 }
