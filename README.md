@@ -1,3 +1,6 @@
-# BamlWeather
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+# BamlWeather
+A play with OpenWeather Public Weather API
+ASP.NET Core
+Angular 4
+Just for the heck of it.
